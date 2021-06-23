@@ -16,7 +16,7 @@ from rest_framework import exceptions
 from .serializers import *
 # Create your views here.
 def index(request):
-    return HttpResponse('This is just the deployed API. It does not have any user interface. To check API please go to this link <br><a href="https://www.google.com/">API interface</a>')
+    return HttpResponse('This is just the deployed API. It does not have any user interface. To check API please go to this link <br><a href="https://app.swaggerhub.com/apis-docs/shubhban29/C3-pizza/1.0.0">API interface</a>')
 
 
 class ResourceAPIView(APIView):
