@@ -17,6 +17,216 @@ To run the project on local server
     
     $ python3 manage.py runserver
 
+
+# All the End Points are documented below
+## /pizza/{pk}:
+### get
+
+>Response
+``` python
+{
+  id: "60d2f0a2be50318db06e4590",
+  type: "regular",
+  size: "small",
+  topping: [
+    "tomato"
+  ]
+}
+```
+### put
+
+>request body
+``` python
+{
+  type: "regular",
+  size: "small",
+  topping: [
+    "tomato"
+  ]
+}
+```
+>response 
+``` python
+{
+  id: "60d2f0a2be50318db06e4590",
+  type: "regular",
+  size: "small",
+  topping: [
+    "tomato"
+  ]
+}
+```
+### patch 
+
+>request body
+``` python
+{
+  type: "regular",
+  size: "small",
+  topping: [
+    "tomato"
+  ]
+}
+```
+>response
+
+``` python
+{
+  id: "60d2f0a2be50318db06e4590",
+  type: "regular",
+  size: "small",
+  topping: [
+    "tomato"
+  ]
+}
+```
+
+### delete
+
+>response
+``` python
+{
+  "succesfully deleted"
+}
+```
+## /pizza-list/{page}:
+### get
+``` python
+[
+  {
+    "id": "60d2d5da825f49aa80a5d8bf",
+    "type": "square",
+    "size": "small",
+    "topping": [
+      "tomato",
+      "onion"
+    ]
+  },
+  {
+    "id": "60d2e2f1973ea360c07b8145",
+    "type": "square",
+    "size": "small",
+    "topping": [
+      "tomato"
+    ]
+  },
+  {
+    "id": "60d2f0a2be50318db06e4590",
+    "type": "regular",
+    "size": "small",
+    "topping": [
+      "tomato"
+    ]
+  }
+]
+```
+## /pizza-topping/{pk}:
+### get
+
+>Response
+``` python
+{
+  id: "60d2f0a2be50318db06e4590",
+  topping: "string"
+}
+```
+### put
+
+>request body
+
+``` python
+{
+  topping: "string"
+}
+```
+
+>response 
+
+``` python
+{
+  id: "60d2f0a2be50318db06e4590",
+  topping: "string"
+}
+```
+
+### patch 
+
+>request body
+``` python
+{
+  topping: "string"
+}
+```
+>response
+``` python
+{
+  id: "60d2f0a2be50318db06e4590",
+  topping: "string"
+}
+```
+
+### delete
+
+>response
+``` python
+{
+  "succesfully deleted"
+}
+```
+
+## /pizza-size/{pk}:
+### get
+
+>Response
+``` python
+{
+  id: "60d2f0a2be50318db06e4590",
+  size: "string"
+}
+```
+### put
+
+>request body
+
+``` python
+{
+  size: "string"
+}
+```
+
+>response 
+
+``` python
+{
+  id: "60d2f0a2be50318db06e4590",
+  size: "string"
+}
+```
+
+### patch 
+
+>request body
+``` python
+{
+  size: "string"
+}
+```
+>response
+``` python
+{
+  id: "60d2f0a2be50318db06e4590",
+  size: "string"
+}
+```
+
+### delete
+
+>response
+``` python
+{
+  "succesfully deleted"
+}
+```
 >## Another way to check API is documented below
 
 # HandsOn
