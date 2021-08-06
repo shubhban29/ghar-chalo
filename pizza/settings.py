@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import mongoengine
-import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pizzas'
+    'pizzas',
+    'authentication'
 ]
 
 MIDDLEWARE = [
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'pizza.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':"frshrtech",
+        'USER': "postgres",
+        'PASSWORD': "shoes@loose",
+        'HOST': "localhost",
+        'PORT': "5432",
     }
 }
 MONGO_DETAIL = dict(
@@ -93,14 +97,6 @@ MONGO_DATABASE_HOST = "{MONGO_SERVER}://{MONGO_USER}:{MONGO_PASS}@{MONGO_HOST}/{
 ) 
 
 mongoengine.connect(host=MONGO_DATABASE_HOST)
-# mongoengine.connect(
-#     db="opmagic",
-#     host='127.0.0.1',
-#     port=27017,
-#     username='opmagic',
-#     password='shoesonloose',
-#     authentication_source='admin'
-# )
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -119,6 +115,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL ='authentication.User'
 
 
 # Internationalization
@@ -140,4 +138,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-django_heroku.settings(locals())
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'skrkmk212@gmail.com'
+EMAIL_HOST_PASSWORD = "oktiuthfdtsbmwzz"
